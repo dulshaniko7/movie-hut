@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,4 +20,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::group(['prefix' => 'admin','middleware' => ['auth']], function (){
+	Route::get('/', function (){
+		return view('backend.products.index');
+	})->name('admin');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('products','ProductsController');
