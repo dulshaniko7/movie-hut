@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Catagory;
+use App\Http\Resources\ProductIndexResource;
+use App\Http\Resources\ProductShowResource;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -14,7 +16,9 @@ class ProductsController extends Controller {
 	 */
 	public function index() {
 		//
-		return view('backend.products.index');
+		return ProductIndexResource::collection(
+				Product::all()
+		);
 	}
 
 	/**
@@ -55,7 +59,7 @@ class ProductsController extends Controller {
 		}
 		$c = Catagory::findOrFail($request->category_id);
 		$c->products()->save($p);
-return redirect()->route('products.create');
+		return redirect()->route('products.create');
 	}
 
 	/**
@@ -66,6 +70,7 @@ return redirect()->route('products.create');
 	 */
 	public function show($id) {
 		//
+		return new ProductShowResource(Product::findOrFail($id));
 	}
 
 	/**
