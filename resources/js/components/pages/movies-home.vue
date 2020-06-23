@@ -20,12 +20,13 @@
             }
         },
         created() {
-            const request = axios.get('api/Products')
+
+            const request = axios.get('api/products')
                 .then(response => {
                     this.movies = response.data.data;
                 })
                 .catch(error => {
-                    console.log('Data error');
+                    console.log('Data error'+error);
                 });
         }
 

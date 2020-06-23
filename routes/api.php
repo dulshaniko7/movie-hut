@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::apiResource('movies', 'MoviesController');
+//Route::apiResource('movies', 'MoviesController');
 
-Route::apiResource('Products','ProductsController');
+//Route::apiResource('Products','ProductsController');
+
+Route::apiResource('products','Api\ProductsController');
+Route::get('/products/{search}','Api\ProductsController@search')->name('products.search');
+Route::apiResource('catagory','Api\CatagoryController');

@@ -4,6 +4,7 @@ import Router from "vue-router"
 import Index from "./components/pages/index"
 import MovieHome from "./components/pages/movies-home"
 import OneMovie from "./components/pages/one-movie"
+import AddMovie from "./components/pages/add-movie"
 
 Vue.use(Router);
 
@@ -19,11 +20,11 @@ const routes = [
         name: 'movies'
     },
     {
-        path: '/:id',
-        name: 'movie',
-        component: OneMovie,
-        params: true
+        path: '/add',
+        component: AddMovie,
+        name: 'add'
     }
+
 ];
 
 export default new Router({

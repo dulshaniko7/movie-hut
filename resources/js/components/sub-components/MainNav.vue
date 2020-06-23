@@ -5,6 +5,7 @@
                 <li class="nav-li"><a href="/movies">Movie</a></li>
                 <li class="nav-li"><a href="/movies">TV</a></li>
                 <li class="nav-li"><a href="/movies">Hindi</a></li>
+                <li class="nav-li"><a href="/add">Add</a></li>
             </ul>
         </div>
     </div>

@@ -26,9 +26,15 @@ window.Vue = require('vue');
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+import { Form, HasError, AlertError } from 'vform'
 import router from "./router"
 import MainApp from "./MainApp"
 
+
+window.Form = Form;
+
+Vue.component(HasError.name, HasError)
+Vue.component(AlertError.name, AlertError)
 const app = new Vue({
     el: '#app',
     router,

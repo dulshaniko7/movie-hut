@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Catagory;
+use App\Http\Controllers\Controller;
 use App\Http\Resources\CatagoryResource;
 use Illuminate\Http\Request;
-use mysql_xdevapi\Collection;
 
 class CatagoryController extends Controller
 {
@@ -16,7 +16,8 @@ class CatagoryController extends Controller
      */
     public function index()
     {
-
+	    $catagories = Catagory::all();
+	    return CatagoryResource::collection($catagories);
     }
 
     /**
@@ -38,11 +39,6 @@ class CatagoryController extends Controller
     public function store(Request $request)
     {
         //
-	    $data = $this->validate([
-			    'name'=>'required'|'min:2'|'max:10'
-	    ]);
-
-	    Catagory::create($data);
     }
 
     /**
